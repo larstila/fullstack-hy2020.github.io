@@ -223,6 +223,17 @@ _npm run deploy:full_ yhdistää nuo molemmat sekä lisää vaadittavat <i>git</
 
 Huomaa, että skriptissä <i>build:ui</i> olevat polut riippuvat repositorioiden sijainnista.
 
+Windows-käyttäjä voi kirjoittaa _build:ui_ -komennon esimerkiksi seuraavalla tavalla:
+```json
+{
+  "scripts": {
+    // ...
+    "build:ui": "rmdir /q /s build && mkdir build && cd cd ../../osa2/materiaali/notes-new && npm run build --prod && xcopy C:\\path\\to\\your\\front_directory\build C:\\path\\to\\your\\back_directory\build /s && cd ../../../osa3/notes-backend/",
+    // ...
+  }
+}
+```
+
 ### Proxy
 
 Frontendiin tehtyjen muutosten seurauksena on nyt se, että kun suoritamme frontendiä sovelluskehitysmoodissa, eli käynnistämällä sen komennolla _npm start_, yhteys backendiin ei toimi:
